@@ -5,17 +5,33 @@
  */
 package puissance4_ackermann_bellod;
 
+import java.util.Random;
+import java.util.Scanner;
+
 /**
  *
  * @author namre
  */
 public class FenetreDeJeu extends javax.swing.JFrame {
 
+    Joueur[] ListeJoueurs = new Joueur[2];
+    Joueur joueurCourant;
+    Grille GrilleInitiale = new Grille();
+
     /**
      * Creates new form FenetreDeJeu
      */
     public FenetreDeJeu() {
         initComponents();
+        panneau_info_joueur.setVisible(false); //permet de cacher les deux parties tant que la partie n'est pas demarré
+        panneau_info_partie.setVisible(false);
+
+        for (int i = 5; i >= 0; i--) {
+            for (int j = 0; j < 7; j++) {
+                CelluleGraphique cellGraph = new CelluleGraphique(GrilleInitiale.Cellules[i][j]);
+                panneau_grille.add(cellGraph);
+            }
+        }
     }
 
     /**
@@ -42,7 +58,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         lbl_j1_couleur = new javax.swing.JLabel();
         lbl_j1_nom = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        lbl_j2_nom5 = new javax.swing.JLabel();
+        lbl_j2_nom = new javax.swing.JLabel();
         panneau_création_partie = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -77,58 +93,58 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         jLabel3.setText("Informations joueurs : ");
         panneau_info_joueur.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tw Cen MT Condensed", 3, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         jLabel4.setText("Joueur  2 :");
         panneau_info_joueur.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
 
-        lbl_j2_desint.setFont(new java.awt.Font("Tw Cen MT Condensed", 2, 14)); // NOI18N
+        lbl_j2_desint.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 14)); // NOI18N
         lbl_j2_desint.setText("NbDesintJoueur2");
-        panneau_info_joueur.add(lbl_j2_desint, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 90, -1));
+        panneau_info_joueur.add(lbl_j2_desint, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 140, -1));
 
-        jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 2, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 14)); // NOI18N
         jLabel7.setText("Désintégrateurs :");
         panneau_info_joueur.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
-        lbl_j2_couleur.setFont(new java.awt.Font("Tw Cen MT Condensed", 2, 14)); // NOI18N
+        lbl_j2_couleur.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 14)); // NOI18N
         lbl_j2_couleur.setText("Couleur Joueur2");
-        panneau_info_joueur.add(lbl_j2_couleur, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 80, -1));
+        panneau_info_joueur.add(lbl_j2_couleur, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 130, -1));
 
-        jLabel9.setFont(new java.awt.Font("Tw Cen MT Condensed", 2, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 14)); // NOI18N
         jLabel9.setText("Couleur :");
         panneau_info_joueur.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Tw Cen MT Condensed", 3, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         jLabel10.setText("Joueur 1 :");
         panneau_info_joueur.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Tw Cen MT Condensed", 2, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 14)); // NOI18N
         jLabel11.setText("Couleur :");
         panneau_info_joueur.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
-        jLabel12.setFont(new java.awt.Font("Tw Cen MT Condensed", 2, 14)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 14)); // NOI18N
         jLabel12.setText("Désintégrateurs :");
         panneau_info_joueur.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
-        lbl_j1_desint.setFont(new java.awt.Font("Tw Cen MT Condensed", 2, 14)); // NOI18N
+        lbl_j1_desint.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 14)); // NOI18N
         lbl_j1_desint.setText("NbDesintJoueur1");
-        panneau_info_joueur.add(lbl_j1_desint, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 80, -1));
+        panneau_info_joueur.add(lbl_j1_desint, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 140, -1));
 
-        lbl_j1_couleur.setFont(new java.awt.Font("Tw Cen MT Condensed", 2, 14)); // NOI18N
+        lbl_j1_couleur.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 14)); // NOI18N
         lbl_j1_couleur.setText("Couleur Joueur1");
-        panneau_info_joueur.add(lbl_j1_couleur, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
+        panneau_info_joueur.add(lbl_j1_couleur, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 140, -1));
 
-        lbl_j1_nom.setFont(new java.awt.Font("Tw Cen MT Condensed", 3, 14)); // NOI18N
+        lbl_j1_nom.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         lbl_j1_nom.setText("NomJoueur1");
-        panneau_info_joueur.add(lbl_j1_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, -1, -1));
+        panneau_info_joueur.add(lbl_j1_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 120, -1));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         panneau_info_joueur.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 250, -1));
 
-        lbl_j2_nom5.setFont(new java.awt.Font("Tw Cen MT Condensed", 3, 14)); // NOI18N
-        lbl_j2_nom5.setText("NomJoueur1");
-        panneau_info_joueur.add(lbl_j2_nom5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
+        lbl_j2_nom.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
+        lbl_j2_nom.setText("NomJoueur2");
+        panneau_info_joueur.add(lbl_j2_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 130, -1));
 
-        getContentPane().add(panneau_info_joueur, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 160, 270, 260));
+        getContentPane().add(panneau_info_joueur, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, 270, 260));
 
         panneau_création_partie.setBackground(new java.awt.Color(255, 153, 255));
         panneau_création_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -148,9 +164,14 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         panneau_création_partie.add(Nom_joueur_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 100, -1));
 
         btn_start.setText("Démarrer Partie");
+        btn_start.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_startActionPerformed(evt);
+            }
+        });
         panneau_création_partie.add(btn_start, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
 
-        getContentPane().add(panneau_création_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, 270, 110));
+        getContentPane().add(panneau_création_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 40, 270, 110));
 
         panneau_info_partie.setBackground(new java.awt.Color(255, 153, 255));
         panneau_info_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -159,13 +180,13 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         jLabel5.setText("Informations jeu : ");
         panneau_info_partie.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jLabel13.setFont(new java.awt.Font("Tw Cen MT Condensed", 3, 14)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         jLabel13.setText("Joueur Courant :");
         panneau_info_partie.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 90, -1));
 
-        lbl_joueurcourant.setFont(new java.awt.Font("Tw Cen MT Condensed", 3, 14)); // NOI18N
+        lbl_joueurcourant.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 14)); // NOI18N
         lbl_joueurcourant.setText("NomJoueurCourant");
-        panneau_info_partie.add(lbl_joueurcourant, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
+        panneau_info_partie.add(lbl_joueurcourant, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 140, -1));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -173,7 +194,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
 
         panneau_info_partie.add(Message, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 200, 50));
 
-        getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 460, 270, 120));
+        getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 500, 270, 120));
 
         btn_col_6.setText("7");
         getContentPane().add(btn_col_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(626, 40, -1, -1));
@@ -212,6 +233,14 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_col_2ActionPerformed
 
+    private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
+        panneau_info_joueur.setVisible(true); //permet de cacher les deux parties tant que la partie n'est pas demarré
+        panneau_info_partie.setVisible(true);
+        initialiserPartie ();
+        panneau_grille.repaint(); //permet de redessiner l'ecran de jeu , rafraichit l'affichage 
+        btn_start.setEnabled(false); //desactive le bouton pour plus pouvoir rafraichir 
+    }//GEN-LAST:event_btn_startActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -246,7 +275,85 @@ public class FenetreDeJeu extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void initialiserPartie () {
+    
+    GrilleInitiale.viderGrille(); //on prepare la grille pour une partie
+    
+    //placer les 5 trous noirs 
+    Random r = new Random();
+    //placer les 5 trous noirs et 2 desintegrateurs sur les trous noirs
+    int a=0;
+    for (int i = 0; i<5; i++) {
+        int ligTN = r.nextInt(6);
+        int colTN = r.nextInt(7);
+        if (a<2) {
+            if (!GrilleInitiale.placerDesintegrateur(ligTN,colTN)) {
+                a--;
+            }
+            a = a +1;
+        }
+        if(!GrilleInitiale.placerTrouNoir(ligTN,colTN)) {
+            i--;
+        }
+    }
+    
+    //placer les 3 desintegrateurs restants
+    for (int i=0; i<3; i++) {
+        int ligdesint = r.nextInt(6);
+        int coldesint = r.nextInt(7);
+        if (!GrilleInitiale.placerDesintegrateur(ligdesint, coldesint) || GrilleInitiale.Cellules[ligdesint][coldesint] == null) {
+            i--;
+        }
+    }
+    
+    //on insere les joueurs   
+    String nomJoueur1 = Nom_joueur_1.getText(); //permet de recuperer le texte qui a été tapé 
+    Joueur Joueur_1 = new Joueur(nomJoueur1);
+    String nomJoueur2 = Nom_joueur_2.getText(); //permet de recuperer le texte qui a été tapé 
+    Joueur Joueur_2 = new Joueur(nomJoueur2);
+    ListeJoueurs[0]= Joueur_1;
+    ListeJoueurs[1]= Joueur_2;
+       
+    attribuerCouleursAuxJoueurs(); //on leur attribue une couleur grâce à la méthode 
+    
+    System.out.println(Joueur_1.Nom + " prend les jetons de couleur " + Joueur_1.Couleur);
+    System.out.println(Joueur_2.Nom + " prend les jetons de couleur " + Joueur_2.Couleur);
+    System.out.println("\n");
+    
+    for (int i=0; i<21; i++) { //on attribue les 21 jetons à chaque joueur
+         Jeton jeton1 = new Jeton (ListeJoueurs[0].Couleur);
+         Joueur_1.ajouterJeton(jeton1);
+         Jeton jeton2 = new Jeton (ListeJoueurs[1].Couleur);
+         Joueur_2.ajouterJeton(jeton2); 
+    }
+    
+    //on determine qui commence 
+    Random c = new Random();
+    boolean le1 = c.nextBoolean();
+    if (le1) {
+       joueurCourant=ListeJoueurs[0]; 
+    }
+    else {
+       joueurCourant=ListeJoueurs[1]; 
+    }
+    lbl_joueurcourant.setText(joueurCourant.Nom); //on met dans le panneau info jeu le nom du joueur courant 
+    
+    //on met à jour le panneau infos joueurs avec les données 
+    lbl_j1_nom.setText(nomJoueur1); 
+    lbl_j2_nom.setText(nomJoueur2);
+    lbl_j1_couleur.setText(Joueur_1.Couleur);
+    lbl_j2_couleur.setText(Joueur_2.Couleur);
+    lbl_j1_desint.setText(Joueur_1.nombreDesintegrateurs+"");
+    lbl_j2_desint.setText(Joueur_2.nombreDesintegrateurs+"");
+}
 
+    public void attribuerCouleursAuxJoueurs() { //attribue une couleur aux deux joueurs 
+    ListeJoueurs[0].Couleur = "Jaune";
+    ListeJoueurs[1].Couleur = "Rouge"; 
+    
+}
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane Message;
     private javax.swing.JTextField Nom_joueur_1;
@@ -277,7 +384,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_j1_nom;
     private javax.swing.JLabel lbl_j2_couleur;
     private javax.swing.JLabel lbl_j2_desint;
-    private javax.swing.JLabel lbl_j2_nom5;
+    private javax.swing.JLabel lbl_j2_nom;
     private javax.swing.JLabel lbl_joueurcourant;
     private javax.swing.JPanel panneau_création_partie;
     private javax.swing.JPanel panneau_grille;

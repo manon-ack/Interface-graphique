@@ -53,7 +53,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="710" y="160" width="270" height="260"/>
+          <AbsoluteConstraints x="710" y="190" width="270" height="260"/>
         </Constraint>
       </Constraints>
 
@@ -77,7 +77,7 @@
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tw Cen MT Condensed" size="14" style="3"/>
+              <Font name="Tw Cen MT Condensed" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Joueur  2 :"/>
           </Properties>
@@ -90,20 +90,20 @@
         <Component class="javax.swing.JLabel" name="lbl_j2_desint">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tw Cen MT Condensed" size="14" style="2"/>
+              <Font name="Tw Cen MT Condensed" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="NbDesintJoueur2"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="120" y="210" width="90" height="-1"/>
+              <AbsoluteConstraints x="120" y="210" width="140" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tw Cen MT Condensed" size="14" style="2"/>
+              <Font name="Tw Cen MT Condensed" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="D&#xe9;sint&#xe9;grateurs :"/>
           </Properties>
@@ -116,20 +116,20 @@
         <Component class="javax.swing.JLabel" name="lbl_j2_couleur">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tw Cen MT Condensed" size="14" style="2"/>
+              <Font name="Tw Cen MT Condensed" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Couleur Joueur2"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="120" y="180" width="80" height="-1"/>
+              <AbsoluteConstraints x="120" y="180" width="130" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tw Cen MT Condensed" size="14" style="2"/>
+              <Font name="Tw Cen MT Condensed" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Couleur :"/>
           </Properties>
@@ -142,7 +142,7 @@
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tw Cen MT Condensed" size="14" style="3"/>
+              <Font name="Tw Cen MT Condensed" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Joueur 1 :"/>
           </Properties>
@@ -155,7 +155,7 @@
         <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tw Cen MT Condensed" size="14" style="2"/>
+              <Font name="Tw Cen MT Condensed" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Couleur :"/>
           </Properties>
@@ -168,7 +168,7 @@
         <Component class="javax.swing.JLabel" name="jLabel12">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tw Cen MT Condensed" size="14" style="2"/>
+              <Font name="Tw Cen MT Condensed" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="D&#xe9;sint&#xe9;grateurs :"/>
           </Properties>
@@ -181,39 +181,39 @@
         <Component class="javax.swing.JLabel" name="lbl_j1_desint">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tw Cen MT Condensed" size="14" style="2"/>
+              <Font name="Tw Cen MT Condensed" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="NbDesintJoueur1"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="120" y="110" width="80" height="-1"/>
+              <AbsoluteConstraints x="120" y="110" width="140" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_j1_couleur">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tw Cen MT Condensed" size="14" style="2"/>
+              <Font name="Tw Cen MT Condensed" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Couleur Joueur1"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="120" y="80" width="-1" height="-1"/>
+              <AbsoluteConstraints x="120" y="80" width="140" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_j1_nom">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tw Cen MT Condensed" size="14" style="3"/>
+              <Font name="Tw Cen MT Condensed" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="NomJoueur1"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="120" y="50" width="-1" height="-1"/>
+              <AbsoluteConstraints x="120" y="50" width="120" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -229,16 +229,16 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="lbl_j2_nom5">
+        <Component class="javax.swing.JLabel" name="lbl_j2_nom">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tw Cen MT Condensed" size="14" style="3"/>
+              <Font name="Tw Cen MT Condensed" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="NomJoueur1"/>
+            <Property name="text" type="java.lang.String" value="NomJoueur2"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="120" y="150" width="-1" height="-1"/>
+              <AbsoluteConstraints x="120" y="150" width="130" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -252,7 +252,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="710" y="10" width="270" height="110"/>
+          <AbsoluteConstraints x="710" y="40" width="270" height="110"/>
         </Constraint>
       </Constraints>
 
@@ -301,6 +301,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="D&#xe9;marrer Partie"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_startActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="80" y="80" width="-1" height="-1"/>
@@ -317,7 +320,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="710" y="460" width="270" height="120"/>
+          <AbsoluteConstraints x="710" y="500" width="270" height="120"/>
         </Constraint>
       </Constraints>
 
@@ -341,7 +344,7 @@
         <Component class="javax.swing.JLabel" name="jLabel13">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tw Cen MT Condensed" size="14" style="3"/>
+              <Font name="Tw Cen MT Condensed" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Joueur Courant :"/>
           </Properties>
@@ -354,13 +357,13 @@
         <Component class="javax.swing.JLabel" name="lbl_joueurcourant">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tw Cen MT Condensed" size="14" style="3"/>
+              <Font name="Tw Cen MT Condensed" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="NomJoueurCourant"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="120" y="40" width="-1" height="-1"/>
+              <AbsoluteConstraints x="120" y="40" width="140" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
