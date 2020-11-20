@@ -44,7 +44,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
                         } else {
                             if (joueurCourant.nombreDesintegrateurs > 0);
                             {
-                                textemessage.setText("Le joueur " + joueurCourant.Nom + " désintègre un jeton");
+                                textemessage.setText("Le joueur " + joueurCourant.Nom + " désintègre un jeton adverse");
                                 C.supprimerJeton();
                                 joueurCourant.utiliserDesintegrateur();
                                 joueurSuivant();
@@ -376,7 +376,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         boolean jeu;
         //on utilise la methode ajouterjetondanscolonne pour mettre le jeton ou le joueur veut
         jeu = GrilleInitiale.ajouterJetonDansColonne(joueurCourant, indice_colonne); //renvoie vraie que si le jeton est bien ajouté 
-
+      
         panneau_grille.repaint(); //on rafraichit la panneau 
 
         lbl_j1_desint.setText(ListeJoueurs[0].nombreDesintegrateurs + ""); //affiche le nb de desting sur le panneau
@@ -387,16 +387,20 @@ public class FenetreDeJeu extends javax.swing.JFrame {
 
         if (vict_j1 && !vict_j2) {
             textemessage.setText("Victoire de " + ListeJoueurs[0].Nom);
+            btn_start.setEnabled(true); //possibilité de redemarrer une partie apres une victoire
         }
         if (vict_j2 && !vict_j1) {
             textemessage.setText("Victoire de " + ListeJoueurs[1].Nom);
+            btn_start.setEnabled(true); //possibilité de redemarrer une partie apres une victoire
         }
 
         if (vict_j1 && vict_j2) {
             if (joueurCourant == ListeJoueurs[0]) {
-                textemessage.setText("Victoire de " + ListeJoueurs[1].Nom + "faute de jeu de l'autre joueur");
+                textemessage.setText("Victoire de " + ListeJoueurs[1].Nom + " faute de jeu de l'autre joueur");
+                btn_start.setEnabled(true);
             } else {
-                textemessage.setText("Victoire de " + ListeJoueurs[0].Nom + "faute de jeu de l'autre joueur");
+                textemessage.setText("Victoire de " + ListeJoueurs[0].Nom + " faute de jeu de l'autre joueur");
+                btn_start.setEnabled(true);
             }
         }
 
@@ -411,9 +415,11 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         if (joueurCourant == ListeJoueurs[0]) {
             joueurCourant = ListeJoueurs[1];
             lbl_joueurcourant.setText(joueurCourant.Nom);
+            //textemessage.setText(joueurCourant.Nom + " il te reste " + joueurCourant.nombreJetonsRestant+" jetons");
         } else {
             joueurCourant = ListeJoueurs[0];
             lbl_joueurcourant.setText(joueurCourant.Nom); //on met à jour le texte dans le panneau
+            //textemessage.setText(joueurCourant.Nom + " il te reste " + joueurCourant.nombreJetonsRestant+" jetons");
         }
     }
 
@@ -492,6 +498,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         ListeJoueurs[1] = Joueur_2;
 
         attribuerCouleursAuxJoueurs(); //on leur attribue une couleur grâce à la méthode 
+        textemessage.setText("La partie va commencer, vous disposez chacun de 21 jetons");
 
         System.out.println(Joueur_1.Nom + " prend les jetons de couleur " + Joueur_1.Couleur);
         System.out.println(Joueur_2.Nom + " prend les jetons de couleur " + Joueur_2.Couleur);

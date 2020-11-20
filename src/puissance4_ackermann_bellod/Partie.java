@@ -80,7 +80,7 @@ public boolean recupererlejeton(){
     }
     if ((GrilleInitiale.Cellules[l][c].jetonCourant != null) &&(GrilleInitiale.Cellules[l][c].lireCouleurDuJeton().equals(joueurCourant.Couleur) && (GrilleInitiale.celluleOccupee(l,c)==true))) {
         joueurCourant.ajouterJeton(GrilleInitiale.recupererJeton(l,c));
-        GrilleInitiale.tasserGrille(c); //on tasse la grille après la récupération
+        GrilleInitiale.tasserGrille(); //on tasse la grille après la récupération
         return true;
     }
     else {
@@ -108,7 +108,7 @@ public boolean desintegrerlejeton(){
     if (GrilleInitiale.Cellules[l][c].jetonCourant != null && GrilleInitiale.Cellules[l][c].lireCouleurDuJeton()!=joueurCourant.Couleur){
         GrilleInitiale.supprimerJeton(l,c);
         joueurCourant.utiliserDesintegrateur();
-        GrilleInitiale.tasserGrille(c);
+        GrilleInitiale.tasserGrille();
         return true;
     }
     else {
