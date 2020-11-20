@@ -22,7 +22,7 @@ public Grille () { //on initialise la grille en créant les 42 cellules vides
    }
 
 public boolean colonneRemplie (int j) { 
-    if (Cellules[5][j].recupererJeton()==null) {
+    if (Cellules[5][j].jetonCourant==null) {
         return false; //renvoie faux la colonne j n'est pas remplie, on peut ajouter un jeton
     }
     else {
@@ -168,12 +168,23 @@ public boolean etreGagnantePourJoueur (Joueur jetonCourant) { //renvoie vrai si 
 }
 
 
-public void tasserGrille (int j) { //si un jeton est capturé ou detruit, on decale de une ligne les jetons au dessus de la cellule liberée
-    for (int i=5; i>=1; i--) { //on part du bas de la grille
-        if (Cellules [i][j].jetonCourant == null) { //si la case est nulle qd le jeton a ete detruit ou capture
-            Cellules[i][j].jetonCourant = Cellules[i-1][j].jetonCourant; //on decale d'une ligne
-            Cellules[i-1][j].jetonCourant = null; // La case est maintenant vide
+public void tasserColonne (int j) { //si un jeton est capturé ou detruit, on decale de une ligne les jetons au dessus de la cellule liberée
+    for (int i=0; i<6; i++) {
+        if (i==5) {
+            Cellules[i][j].jetonCourant = null;
         }
+        else {
+            if (Cellules[i][j].jetonCourant == null) {
+                Cellules[i][j].jetonCourant = Cellules[i+1][j].jetonCourant;
+                Cellules[i+1][j].jetonCourant = null;
+            }
+        }
+    }
+}
+
+public void tasserGrille (){
+    for (int i=0; i<7; i++) {
+        tasserColonne(i);
     }
 }
 

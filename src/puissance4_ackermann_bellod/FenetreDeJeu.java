@@ -29,6 +29,51 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         for (int i = 5; i >= 0; i--) {
             for (int j = 0; j < 7; j++) {
                 CelluleGraphique cellGraph = new CelluleGraphique(GrilleInitiale.Cellules[i][j]);
+                cellGraph.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        Cellule C = cellGraph.celluleAssociee;
+                        if (C.jetonCourant == null) {
+                            return;
+                        }
+
+                        if (C.jetonCourant.Couleur.equals(joueurCourant.Couleur)) {
+                            textemessage.setText("Le joueur " + joueurCourant.Nom + " réupère un de ses jetons");
+                            Jeton j_recup = C.recupererJeton();
+                            joueurCourant.ajouterJeton(j_recup);
+                            joueurSuivant();
+                        } else {
+                            if (joueurCourant.nombreDesintegrateurs > 0);
+                            {
+                                textemessage.setText("Le joueur " + joueurCourant.Nom + " désintègre un jeton");
+                                C.supprimerJeton();
+                                joueurCourant.utiliserDesintegrateur();
+                                joueurSuivant();
+                            }
+                        }
+                        GrilleInitiale.tasserGrille();
+                        panneau_grille.repaint();
+                        lbl_j1_desint.setText(ListeJoueurs[0].nombreDesintegrateurs + ""); //affiche le nb de desting sur le panneau
+                        lbl_j2_desint.setText(ListeJoueurs[1].nombreDesintegrateurs + "");
+
+                        boolean vict_j1 = GrilleInitiale.etreGagnantePourJoueur(ListeJoueurs[0]);
+                        boolean vict_j2 = GrilleInitiale.etreGagnantePourJoueur(ListeJoueurs[1]);
+
+                        if (vict_j1 && !vict_j2) {
+                            textemessage.setText("Victoire de " + ListeJoueurs[0].Nom);
+                        }
+                        if (vict_j2 && !vict_j1) {
+                            textemessage.setText("Victoire de " + ListeJoueurs[1].Nom);
+                        }
+
+                        if (vict_j1 && vict_j2) {
+                            if (joueurCourant == ListeJoueurs[0]) {
+                                textemessage.setText("Victoire de " + ListeJoueurs[1].Nom + "faute de jeu de l'autre joueur");
+                            } else {
+                                textemessage.setText("Victoire de " + ListeJoueurs[0].Nom + "faute de jeu de l'autre joueur");
+                            }
+                        }
+                    }
+                });
                 panneau_grille.add(cellGraph);
             }
         }
@@ -138,20 +183,22 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         panneau_info_joueur.add(lbl_j1_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 120, -1));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
-        panneau_info_joueur.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 250, -1));
+        panneau_info_joueur.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 132, 290, 10));
 
         lbl_j2_nom.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         lbl_j2_nom.setText("NomJoueur2");
         panneau_info_joueur.add(lbl_j2_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 130, -1));
 
-        getContentPane().add(panneau_info_joueur, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, 270, 260));
+        getContentPane().add(panneau_info_joueur, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, 300, 260));
 
         panneau_création_partie.setBackground(new java.awt.Color(255, 153, 255));
         panneau_création_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         jLabel1.setText("Nom Joueur 2 : ");
         panneau_création_partie.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         jLabel2.setText("Nom Joueur 1 : ");
         panneau_création_partie.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, 20));
 
@@ -163,6 +210,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         panneau_création_partie.add(Nom_joueur_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 100, -1));
         panneau_création_partie.add(Nom_joueur_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 100, -1));
 
+        btn_start.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         btn_start.setText("Démarrer Partie");
         btn_start.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,7 +219,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         });
         panneau_création_partie.add(btn_start, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
 
-        getContentPane().add(panneau_création_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 40, 270, 110));
+        getContentPane().add(panneau_création_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 40, 300, 110));
 
         panneau_info_partie.setBackground(new java.awt.Color(255, 153, 255));
         panneau_info_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -192,9 +240,9 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         textemessage.setRows(5);
         Message.setViewportView(textemessage);
 
-        panneau_info_partie.add(Message, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 200, 50));
+        panneau_info_partie.add(Message, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 280, 50));
 
-        getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 500, 270, 120));
+        getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 500, 300, 120));
 
         btn_col_6.setText("7");
         btn_col_6.addActionListener(new java.awt.event.ActionListener() {
@@ -330,19 +378,26 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         jeu = GrilleInitiale.ajouterJetonDansColonne(joueurCourant, indice_colonne); //renvoie vraie que si le jeton est bien ajouté 
 
         panneau_grille.repaint(); //on rafraichit la panneau 
-        
-        lbl_j1_desint.setText(ListeJoueurs[0].nombreDesintegrateurs+""); //affiche le nb de desting sur le panneau
-        lbl_j2_desint.setText(ListeJoueurs[1].nombreDesintegrateurs+"");
-        
-        boolean  vict_j1 = GrilleInitiale.etreGagnantePourJoueur(ListeJoueurs[0]);
-        boolean  vict_j2 = GrilleInitiale.etreGagnantePourJoueur(ListeJoueurs[1]);
-        
-        if (vict_j1 && ! vict_j2) textemessage.setText("Victoire de " + ListeJoueurs[0].Nom );
-        if (vict_j2 && ! vict_j1) textemessage.setText("Victoire de " + ListeJoueurs[1].Nom );
-        
+
+        lbl_j1_desint.setText(ListeJoueurs[0].nombreDesintegrateurs + ""); //affiche le nb de desting sur le panneau
+        lbl_j2_desint.setText(ListeJoueurs[1].nombreDesintegrateurs + "");
+
+        boolean vict_j1 = GrilleInitiale.etreGagnantePourJoueur(ListeJoueurs[0]);
+        boolean vict_j2 = GrilleInitiale.etreGagnantePourJoueur(ListeJoueurs[1]);
+
+        if (vict_j1 && !vict_j2) {
+            textemessage.setText("Victoire de " + ListeJoueurs[0].Nom);
+        }
+        if (vict_j2 && !vict_j1) {
+            textemessage.setText("Victoire de " + ListeJoueurs[1].Nom);
+        }
+
         if (vict_j1 && vict_j2) {
-            if (joueurCourant == ListeJoueurs[0]) textemessage.setText("Victoire de " + ListeJoueurs[1].Nom + "faute de jeu de l'autre joueur" );
-                else textemessage.setText("Victoire de " + ListeJoueurs[0].Nom + "faute de jeu de l'autre joueur"); 
+            if (joueurCourant == ListeJoueurs[0]) {
+                textemessage.setText("Victoire de " + ListeJoueurs[1].Nom + "faute de jeu de l'autre joueur");
+            } else {
+                textemessage.setText("Victoire de " + ListeJoueurs[0].Nom + "faute de jeu de l'autre joueur");
+            }
         }
 
         if (jeu == true) {

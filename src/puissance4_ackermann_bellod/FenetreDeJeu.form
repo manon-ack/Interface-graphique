@@ -53,7 +53,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="710" y="190" width="270" height="260"/>
+          <AbsoluteConstraints x="710" y="190" width="300" height="260"/>
         </Constraint>
       </Constraints>
 
@@ -225,7 +225,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="10" y="140" width="250" height="-1"/>
+              <AbsoluteConstraints x="10" y="132" width="290" height="10"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -252,7 +252,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="710" y="40" width="270" height="110"/>
+          <AbsoluteConstraints x="710" y="40" width="300" height="110"/>
         </Constraint>
       </Constraints>
 
@@ -262,6 +262,9 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tw Cen MT Condensed" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Nom Joueur 2 : "/>
           </Properties>
           <Constraints>
@@ -272,6 +275,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tw Cen MT Condensed" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Nom Joueur 1 : "/>
           </Properties>
           <Constraints>
@@ -299,6 +305,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_start">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tw Cen MT Condensed" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="D&#xe9;marrer Partie"/>
           </Properties>
           <Events>
@@ -320,7 +329,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="710" y="500" width="270" height="120"/>
+          <AbsoluteConstraints x="710" y="500" width="300" height="120"/>
         </Constraint>
       </Constraints>
 
@@ -373,7 +382,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="30" y="60" width="200" height="50"/>
+              <AbsoluteConstraints x="10" y="60" width="280" height="50"/>
             </Constraint>
           </Constraints>
 
