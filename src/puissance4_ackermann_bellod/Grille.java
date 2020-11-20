@@ -20,6 +20,7 @@ public Grille () { //on initialise la grille en créant les 42 cellules vides
            }
        }
    }
+
 public boolean colonneRemplie (int j) { 
     if (Cellules[5][j].recupererJeton()==null) {
         return false; //renvoie faux la colonne j n'est pas remplie, on peut ajouter un jeton
