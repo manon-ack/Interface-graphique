@@ -59,18 +59,51 @@ public class FenetreDeJeu extends javax.swing.JFrame {
                         boolean vict_j2 = GrilleInitiale.etreGagnantePourJoueur(ListeJoueurs[1]);
 
                         if (vict_j1 && !vict_j2) {
-                            textemessage.setText("Victoire de " + ListeJoueurs[0].Nom);
+                            textemessage.setText("Victoire de " + ListeJoueurs[0].Nom + " ! Cliquer pour recommencer une partie !");
+                            btn_col_0.setEnabled(false);
+                            btn_col_1.setEnabled(false);
+                            btn_col_2.setEnabled(false);
+                            btn_col_3.setEnabled(false);
+                            btn_col_4.setEnabled(false);
+                            btn_col_5.setEnabled(false);
+                            btn_col_6.setEnabled(false);
+                            btn_start.setEnabled(true); //possibilité de redemarrer une partie apres une victoire
                         }
                         if (vict_j2 && !vict_j1) {
-                            textemessage.setText("Victoire de " + ListeJoueurs[1].Nom);
+                            textemessage.setText("Victoire de " + ListeJoueurs[1].Nom + " ! Cliquer pour recommencer une partie !");
+                            btn_col_0.setEnabled(false);
+                            btn_col_1.setEnabled(false);
+                            btn_col_2.setEnabled(false);
+                            btn_col_3.setEnabled(false);
+                            btn_col_4.setEnabled(false);
+                            btn_col_5.setEnabled(false);
+                            btn_col_6.setEnabled(false);
+                            btn_start.setEnabled(true); //possibilité de redemarrer une partie apres une victoire
                         }
 
                         if (vict_j1 && vict_j2) {
                             if (joueurCourant == ListeJoueurs[0]) {
-                                textemessage.setText("Victoire de " + ListeJoueurs[1].Nom + "faute de jeu de l'autre joueur");
+                                textemessage.setText("Victoire de " + ListeJoueurs[1].Nom + "faute de jeu de l'autre joueur" + " ! Cliquer pour recommencer une partie !");
+                                btn_col_0.setEnabled(false);
+                                btn_col_1.setEnabled(false);
+                                btn_col_2.setEnabled(false);
+                                btn_col_3.setEnabled(false);
+                                btn_col_4.setEnabled(false);
+                                btn_col_5.setEnabled(false);
+                                btn_col_6.setEnabled(false);
+                                btn_start.setEnabled(true); //possibilité de redemarrer une partie apres une victoire
                             } else {
-                                textemessage.setText("Victoire de " + ListeJoueurs[0].Nom + "faute de jeu de l'autre joueur");
+                                textemessage.setText("Victoire de " + ListeJoueurs[0].Nom + "faute de jeu de l'autre joueur" + " ! Cliquer pour recommencer une partie !");
+                                btn_col_0.setEnabled(false);
+                                btn_col_1.setEnabled(false);
+                                btn_col_2.setEnabled(false);
+                                btn_col_3.setEnabled(false);
+                                btn_col_4.setEnabled(false);
+                                btn_col_5.setEnabled(false);
+                                btn_col_6.setEnabled(false);
+                                btn_start.setEnabled(true); //possibilité de redemarrer une partie apres une victoire
                             }
+                            
                         }
                     }
                 });
@@ -386,20 +419,48 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         boolean vict_j2 = GrilleInitiale.etreGagnantePourJoueur(ListeJoueurs[1]);
 
         if (vict_j1 && !vict_j2) {
-            textemessage.setText("Victoire de " + ListeJoueurs[0].Nom);
+            textemessage.setText("Victoire de " + ListeJoueurs[0].Nom + " ! Cliquer pour recommencer une partie !");
+            btn_col_0.setEnabled(false); //on bloque les colonnes qd il y a victoire
+            btn_col_1.setEnabled(false);
+            btn_col_2.setEnabled(false);
+            btn_col_3.setEnabled(false);
+            btn_col_4.setEnabled(false);
+            btn_col_5.setEnabled(false);
+            btn_col_6.setEnabled(false);
             btn_start.setEnabled(true); //possibilité de redemarrer une partie apres une victoire
         }
         if (vict_j2 && !vict_j1) {
-            textemessage.setText("Victoire de " + ListeJoueurs[1].Nom);
+            textemessage.setText("Victoire de " + ListeJoueurs[1].Nom + " ! Cliquer pour recommencer une partie !");
+            btn_col_0.setEnabled(false);
+            btn_col_1.setEnabled(false);
+            btn_col_2.setEnabled(false);
+            btn_col_3.setEnabled(false);
+            btn_col_4.setEnabled(false);
+            btn_col_5.setEnabled(false);
+            btn_col_6.setEnabled(false);
             btn_start.setEnabled(true); //possibilité de redemarrer une partie apres une victoire
         }
 
         if (vict_j1 && vict_j2) {
             if (joueurCourant == ListeJoueurs[0]) {
-                textemessage.setText("Victoire de " + ListeJoueurs[1].Nom + " faute de jeu de l'autre joueur");
+                textemessage.setText("Victoire de " + ListeJoueurs[1].Nom + " faute de jeu de l'autre joueur" + " ! Cliquer pour recommencer une partie !");
+                btn_col_0.setEnabled(false);
+                btn_col_1.setEnabled(false);
+                btn_col_2.setEnabled(false);
+                btn_col_3.setEnabled(false);
+                btn_col_4.setEnabled(false);
+                btn_col_5.setEnabled(false);
+                btn_col_6.setEnabled(false);
                 btn_start.setEnabled(true);
             } else {
-                textemessage.setText("Victoire de " + ListeJoueurs[0].Nom + " faute de jeu de l'autre joueur");
+                textemessage.setText("Victoire de " + ListeJoueurs[0].Nom + " faute de jeu de l'autre joueur" + " ! Cliquer pour recommencer une partie !");
+                btn_col_0.setEnabled(false);
+                btn_col_1.setEnabled(false);
+                btn_col_2.setEnabled(false);
+                btn_col_3.setEnabled(false);
+                btn_col_4.setEnabled(false);
+                btn_col_5.setEnabled(false);
+                btn_col_6.setEnabled(false);
                 btn_start.setEnabled(true);
             }
         }
@@ -528,6 +589,14 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         lbl_j2_couleur.setText(Joueur_2.Couleur);
         lbl_j1_desint.setText(Joueur_1.nombreDesintegrateurs + "");
         lbl_j2_desint.setText(Joueur_2.nombreDesintegrateurs + "");
+        
+        btn_col_0.setEnabled(true);
+        btn_col_1.setEnabled(true);
+        btn_col_2.setEnabled(true);
+        btn_col_3.setEnabled(true);
+        btn_col_4.setEnabled(true);
+        btn_col_5.setEnabled(true);
+        btn_col_6.setEnabled(true);
     }
 
     public void attribuerCouleursAuxJoueurs() { //attribue une couleur aux deux joueurs 
