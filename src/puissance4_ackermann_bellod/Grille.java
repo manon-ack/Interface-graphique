@@ -21,21 +21,21 @@ public Grille () { //on initialise la grille en créant les 42 cellules vides
        }
    }
 public boolean colonneRemplie (int j) { 
-    if (Cellules[0][j].recupererJeton()==null) {
+    if (Cellules[5][j].recupererJeton()==null) {
         return false; //renvoie faux la colonne j n'est pas remplie, on peut ajouter un jeton
     }
     else {
         return true; //renvoie vraie la colonne j est remplie, on ne peut pas ajouter un jeton
-    }
+    } 
 }
 
 public boolean ajouterJetonDansColonne (Joueur joueurCourant, int j) { //ajoute le jeton dans la colonne souhaitée
     if (colonneRemplie(j)==true) {
         return false; //renvoie faux la colonne est remplie on ne peut pas ajouter un jeton
     }
-    int i = 5;
+    int i = 0;
     while (Cellules [i][j].jetonCourant != null) { //on cherche dans quelle ligne le jeton est ajouté
-        i--;
+        i++;
     }
     Jeton unJeton = joueurCourant.retirerJeton();  //on prend un jeton au joueur
     Cellules [i][j].jetonCourant = unJeton; //on ajoute ce jeton dans la cellule
@@ -66,7 +66,6 @@ public void activertrounoir (int j) {
 }
 
 public boolean etreRemplie () { //renvoie vraie si la grille est pleine
-    int a=0;
     int j=0;
     while (j!=6 && colonneRemplie(j)==true){
         j++;  
@@ -207,7 +206,7 @@ public boolean supprimerJeton (int i, int j) { //supprime le jeton de la cellule
 public Jeton recupererJeton (int i, int j) { // enleve le jeton de la cellule visée et renvoie une ref vers ce jeton
     Jeton a;
     a= Cellules[i][j].recupererJeton();
-    Cellules[i][j].supprimerJeton();
+    //Cellules[i][j].supprimerJeton();
     return a;
 }
 }

@@ -127,19 +127,30 @@ public void initialiserPartie () {
     GrilleInitiale.viderGrille(); //on prepare la grille pour une partie
     
     //placer les 5 trous noirs 
-    Random aléatoire = new Random();
-    
-    for (int i=0; i<5; i++) {
-        int ltn = aléatoire.nextInt(6);
-        int ctn = aléatoire.nextInt(7);
-        GrilleInitiale.placerTrouNoir(ltn,ctn);
+    Random r = new Random();
+    //placer les 5 trous noirs et 2 desintegrateurs sur les trous noirs
+    int a=0;
+    for (int i = 0; i<5; i++) {
+        int ligTN = r.nextInt(6);
+        int colTN = r.nextInt(7);
+        if (a<2) {
+            if (!GrilleInitiale.placerDesintegrateur(ligTN,colTN)) {
+                a--;
+            }
+            a = a +1;
+        }
+        if(!GrilleInitiale.placerTrouNoir(ligTN,colTN)) {
+            i--;
+        }
     }
     
-    //placer les 5 desintegrateurs 
-    for (int i=0; i<5; i++) {
-        int ld = aléatoire.nextInt(6);
-        int cd = aléatoire.nextInt(7);
-        GrilleInitiale.placerDesintegrateur(ld,cd);
+    //placer les 3 desintegrateurs restants
+    for (int i=0; i<3; i++) {
+        int ligdesint = r.nextInt(6);
+        int coldesint = r.nextInt(7);
+        if (!GrilleInitiale.placerDesintegrateur(ligdesint, coldesint) || GrilleInitiale.Cellules[ligdesint][coldesint] == null) {
+            i--;
+        }
     }
     
     //on insere les joueurs 
